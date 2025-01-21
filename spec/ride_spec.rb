@@ -64,10 +64,10 @@ describe Ride do
             expect(@visitor1.spending_money).to eq(10)
         end
 
-        xit 'can not board visitors who are too short' do
+        it 'can not board visitors who are too short' do
             @ride2.board_rider(@visitor2)
 
-            expect(@visitor2.spending_money).to eq(10)
+            expect(@visitor2.spending_money).to eq(5)
         end
 
         xit 'can not board visitors if they cant pay admission fee' do
