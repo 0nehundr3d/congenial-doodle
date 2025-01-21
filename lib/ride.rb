@@ -21,6 +21,14 @@ class Ride
         return if !rider.pay_admission(@admission_fee)
         
         @rider_log[rider] += 1
-        @total_revenue += 1
+        @total_revenue += admission_fee
+    end
+
+    def total_riders
+        @rider_log.sum { |rider, times_ridden| times_ridden }
+    end
+
+    def visitors
+        @rider_log.keys
     end
 end

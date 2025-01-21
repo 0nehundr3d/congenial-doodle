@@ -79,4 +79,23 @@ describe Ride do
             })
         end
     end
+
+    describe '#total_riders' do
+        it 'can return how many times it has been ridden' do
+            7.times { @ride1.board_rider(@visitor1) }
+            @ride1.board_rider(@visitor2)
+
+            expect(@ride1.total_riders).to eq(8)
+        end
+    end
+
+    describe '#visitors' do
+        it 'can return an array of all visitors' do
+            @ride1.board_rider(@visitor1)
+            @ride1.board_rider(@visitor1)
+            @ride1.board_rider(@visitor2)
+
+            expect(@ride1.visitors).to eq([@visitor1, @visitor2])
+        end
+    end
 end

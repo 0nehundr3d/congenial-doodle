@@ -17,6 +17,7 @@ describe Visitor do
             expect(@visitor1.height).to eq(54)
             expect(@visitor1.spending_money).to eq(10)
             expect(@visitor1.preferences).to eq([])
+            expect(@visitor1.money_spent).to eq(0)
         end
     end
 
@@ -42,11 +43,13 @@ describe Visitor do
         it 'can pay admission fees' do
             expect(@visitor1.pay_admission(10)).to eq(true)
             expect(@visitor1.spending_money).to eq(0)
+            expect(@visitor1.money_spent).to eq(10)
         end
 
         it 'can not pay more than it has' do
             expect(@visitor1.pay_admission(20)).to eq(false)
             expect(@visitor1.spending_money).to eq(10)
+            expect(@visitor1.money_spent).to eq(0)
         end
     end
 
