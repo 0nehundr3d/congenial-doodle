@@ -46,7 +46,7 @@ describe Carnival do
     end
 
     describe '#initialize' do
-        xit 'exists' do
+        it 'exists' do
             expect(@carnival).to be_a(Carnival)
             expect(@carnival.duration).to eq(14)
 
@@ -55,25 +55,25 @@ describe Carnival do
     end
 
     describe '#add_ride' do
-        xit 'can add rides' do
-            expect(@carnival.rides).to eq([@ride1])
+        it 'can add rides' do
+            expect(@carnival.rides).to eq([@ride1, @ride2])
         end
     end
 
     describe '#most_popular_ride' do
-        xit 'can return the most popular ride' do
+        it 'can return the most popular ride' do
             expect(@carnival.most_popular_ride).to eq(@ride1)
         end
     end
 
     describe '#most_profitable_ride' do
-        xit 'can return the most profitable ride' do
+        it 'can return the most profitable ride' do
             expect(@carnival.most_profitable_ride).to eq(@ride2)
         end
     end
 
     describe '#total_revenue' do
-        xit 'can return the total revenue of the carnival' do
+        it 'can return the total revenue of the carnival' do
             expect(@carnival.total_revenue).to eq(7)
         end
     end
