@@ -11,4 +11,8 @@ class Visitor
     def spending_money
         @spending_money[1..-1].to_i
     end
+
+    def add_preference(preference)
+        @preferences << preference
+    end
 end
