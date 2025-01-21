@@ -70,7 +70,7 @@ describe Ride do
             expect(@visitor2.spending_money).to eq(5)
         end
 
-        xit 'can not board visitors if they cant pay admission fee' do
+        it 'can not board visitors if they cant pay admission fee' do
             8.times { @ride2.board_rider(@visitor3) }
 
             expect(@visitor3.spending_money).to eq(1)
