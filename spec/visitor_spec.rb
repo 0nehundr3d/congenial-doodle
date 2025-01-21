@@ -11,7 +11,7 @@ describe Visitor do
     end
 
     describe '#initialize' do
-        xit 'exists' do
+        it 'exists' do
             expect(@visitor1).to be_a Visitor
             expect(@visitor1.name).to eq("Bruce")
             expect(@visitor1.height).to eq(54)
@@ -21,7 +21,7 @@ describe Visitor do
     end
 
     describe '#preferences' do
-        xit 'can add and list out preferences' do
+        it 'can add and list out preferences' do
             @visitor1.add_preference(:gentele)
             @visitor1.add_preference(:thrilling)
 
@@ -30,7 +30,7 @@ describe Visitor do
     end
 
     describe '#tall_enough?' do
-        xit 'can tell if a visitor is above a certain height' do
+        it 'can tell if a visitor is above a certain height' do
             expect(@visitor1.tall_enough?(54)).to eq(true)
             expect(@visitor2.tall_enough?(54)).to eq(false)
             expect(@visitor3.tall_enough?(54)).to eq(true)
