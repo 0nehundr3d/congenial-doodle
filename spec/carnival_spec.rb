@@ -4,6 +4,7 @@ SimpleCov.start
 require './lib/carnival'
 require './lib/ride'
 require './lib/visitor'
+require 'pry'
 
 describe Carnival do
     before :each do
@@ -75,6 +76,50 @@ describe Carnival do
     describe '#total_revenue' do
         it 'can return the total revenue of the carnival' do
             expect(@carnival.total_revenue).to eq(7)
+        end
+    end
+
+    describe '#unique_riders' do
+        it 'can return an array of unique riders' do
+            expect(@carnival.unique_riders).to eq([@visitor1, @visitor2, @visitor3])
+        end
+    end
+
+    describe '#summary' do
+        xit 'can return a summary of the carnival' do
+            expect(@carnival.summary).to eq({
+                visitor_count: 3,
+                revenue_earned: 7,
+                visitors: [
+                    {
+                        visitor: @visitor1,
+                        favorite_ride: @ride1,
+                        total_money_spent: 2
+                    },
+                    {
+                        visitor: @visitor2,
+                        favorite_ride: @ride1,
+                        total_money_spent: 3
+                    },
+                    {
+                        visitor: @visitor3,
+                        favorite_ride: @ride2,
+                        total_money_spent: 2
+                    }
+                ],
+                rides: [
+                    {
+                        ride: @ride1,
+                        riders: [@visitor1, @visitor2],
+                        total_revenue: 3
+                    },
+                    {
+                        ride: @ride2,
+                        riders: [@visitor2, @visitor3],
+                        total_revenue: 4
+                    }
+                ]
+            })
         end
     end
 end
