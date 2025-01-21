@@ -33,7 +33,7 @@ describe Ride do
     end
 
     describe '#initialize' do
-        xit 'exists' do
+        it 'exists' do
             expect(@ride1).to be_a(Ride)
             expect(@ride1.name).to eq("Carousel")
             expect(@ride1.min_height).to eq(24)
@@ -44,7 +44,7 @@ describe Ride do
     end
 
     describe '#board_rider' do
-        xit 'can board riders' do
+        it 'can board riders' do
             @ride1.board_rider(@visitor1)
             @ride1.board_rider(@visitor2)
             @ride1.board_rider(@visitor1)
@@ -58,10 +58,10 @@ describe Ride do
             expect(@ride1.total_revenue).to eq(3)
         end
 
-        xit 'can not board visitors without matching preferences' do
+        it 'can not board visitors without matching preferences' do
             @ride2.board_rider(@visitor1)
 
-            expect(@visitor3.spending_money).to eq(10)
+            expect(@visitor1.spending_money).to eq(10)
         end
 
         xit 'can not board visitors who are too short' do
