@@ -7,7 +7,7 @@ require './lib/visitor'
 require 'pry'
 
 describe Carnival do
-    before :each do
+    before :all do
         @carnival = Carnival.new(14)
 
         @ride1 = Ride.new({
@@ -51,7 +51,7 @@ describe Carnival do
             expect(@carnival).to be_a(Carnival)
             expect(@carnival.duration).to eq(14)
 
-            expect(Carnival.new(14).rides).to eq([])
+            expect(@carnival.rides).to eq([@ride1, @ride2])
         end
     end
 
@@ -141,5 +141,43 @@ describe Carnival do
                 ]
             })
         end
+    end
+
+    describe 'class methods' do
+        before :all do
+            @carnival2 = Carnival.new(14)
+
+        @ride1_2 = Ride.new({
+            name: 'Carousel',
+            min_height: 24,
+            admission_fee: 1,
+            excitement: :gentle
+        })
+        @ride2_2 = Ride.new({
+            name: 'Roller Coaster',
+            min_height: 54,
+            admission_fee: 2,
+            excitement:
+            :thrilling
+        })
+
+        @carnival2.add_ride(@ride1)
+        @carnival2.add_ride(@ride2)
+
+        @ride1_2.board_rider(@visitor1)
+        @ride1_2.board_rider(@visitor1)
+        @ride1_2.board_rider(@visitor2)
+
+        @ride2_2.board_rider(@visitor2)
+        @ride2_2.board_rider(@visitor3)
+        end
+
+        describe '#Carnival.all' do
+            it 'can store all instances of a carnival' do
+                expect(Carnival.all).to eq([@carnival, @carnival2])
+            end
+        end
+
+        
     end
 end
