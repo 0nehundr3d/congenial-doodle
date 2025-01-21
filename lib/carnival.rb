@@ -48,12 +48,24 @@ class Carnival
         info_hash
     end
 
+    def get_ride_info(ride)
+        info_hash = {}
+
+        info_hash[:ride] = ride
+        info_hash[:riders] = ride.visitors
+        info_hash[:total_revenue] = ride.total_revenue
+
+        info_hash
+    end
+
     def summary
         summary_hash = {}
         riders = unique_riders
 
+        visitor_info = riders.map { |rider| get_visitor_info(rider) }
         
         summary_hash[:visitor_count] = riders.count
         summary_hash[:revenue_earned] = total_revenue
+        summary_hash[:visitors] = visitor_info
     end
 end

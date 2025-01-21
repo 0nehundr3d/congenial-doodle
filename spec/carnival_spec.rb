@@ -95,6 +95,16 @@ describe Carnival do
         end
     end
 
+    describe '#get_ride_info' do
+        it 'can return info on a ride' do
+            expect(@carnival.get_ride_info(@ride1)).to eq({
+                ride: @ride1,
+                riders: [@visitor1, @visitor2],
+                total_revenue: 3
+            })
+        end
+    end
+
     describe '#summary' do
         xit 'can return a summary of the carnival' do
             expect(@carnival.summary).to eq({
