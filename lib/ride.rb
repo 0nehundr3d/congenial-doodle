@@ -23,4 +23,8 @@ class Ride
         @rider_log[rider] += 1
         @total_revenue += 1
     end
+
+    def total_riders
+        @rider_log.sum { |rider, times_ridden| times_ridden }
+    end
 end
