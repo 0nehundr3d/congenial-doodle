@@ -16,5 +16,14 @@ describe Visitor do
             expect(@visitor1.spending_money).to eq(10)
             expect(@visitor1.preferences).to eq([])
         end
-end
+    end
+
+    describe '#preferences' do
+        it 'can add and list out preferences' do
+            @visitor1.add_preference(:gentele)
+            @visitor1.add_preference(:thrilling)
+
+            expect(@visitor1.preferences).to eq([:gentele, :thrilling])
+        end
+    end
 end
