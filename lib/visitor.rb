@@ -23,4 +23,8 @@ class Visitor
         @spending_money -= ammount
         true
     end
+
+    def has_preference?(preference)
+        @preferences.include?(preference)
+    end
 end

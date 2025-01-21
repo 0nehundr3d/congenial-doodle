@@ -49,4 +49,15 @@ describe Visitor do
             expect(@visitor1.spending_money).to eq(10)
         end
     end
+
+    describe '#has_preference?' do
+        it 'can determine if it has a givin preference' do
+            @visitor1.add_preference(:gentle)
+            expect(@visitor1.has_preference?(:gentle)).to eq(true)
+        end
+
+        it 'can determine if it does nto have a givin preference' do
+            expect(@visitor1.has_preference?(:gentle)).to eq(false)
+        end
+    end
 end
