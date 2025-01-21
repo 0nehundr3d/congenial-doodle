@@ -7,6 +7,10 @@ class Carnival
         @@carnivals
     end
 
+    def self.total_revenues
+        @@carnivals.sum { |carnival| carnival.total_revenue }
+    end
+
     def initialize(duration)
         @duration = duration
         @rides = []

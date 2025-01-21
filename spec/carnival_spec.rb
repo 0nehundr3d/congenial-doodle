@@ -20,8 +20,7 @@ describe Carnival do
             name: 'Roller Coaster',
             min_height: 54,
             admission_fee: 2,
-            excitement:
-            :thrilling
+            excitement: :thrilling
         })
 
         @carnival.add_ride(@ride1)
@@ -147,29 +146,39 @@ describe Carnival do
         before :all do
             @carnival2 = Carnival.new(14)
 
-        @ride1_2 = Ride.new({
-            name: 'Carousel',
-            min_height: 24,
-            admission_fee: 1,
-            excitement: :gentle
-        })
-        @ride2_2 = Ride.new({
-            name: 'Roller Coaster',
-            min_height: 54,
-            admission_fee: 2,
-            excitement:
-            :thrilling
-        })
+            @ride1_2 = Ride.new({
+                name: 'Carousel',
+                min_height: 24,
+                admission_fee: 3,
+                excitement: :gentle
+            })
+            @ride2_2 = Ride.new({
+                name: 'Roller Coaster',
+                min_height: 54,
+                admission_fee: 4,
+                excitement: :thrilling
+            })
 
-        @carnival2.add_ride(@ride1)
-        @carnival2.add_ride(@ride2)
+            @carnival2.add_ride(@ride1_2)
+            @carnival2.add_ride(@ride2_2)
 
-        @ride1_2.board_rider(@visitor1)
-        @ride1_2.board_rider(@visitor1)
-        @ride1_2.board_rider(@visitor2)
+            @visitor1_2 = Visitor.new('Bruce', 54, '$10')
+            @visitor2_2 = Visitor.new('Tucker', 54, '$10')
+            @visitor3_2 = Visitor.new('Penny', 64, '$15')
 
-        @ride2_2.board_rider(@visitor2)
-        @ride2_2.board_rider(@visitor3)
+            @visitor1_2.add_preference(:gentle)
+
+            @visitor2_2.add_preference(:gentle)
+            @visitor2_2.add_preference(:thrilling)
+
+            @visitor3_2.add_preference(:thrilling)
+
+            @ride1_2.board_rider(@visitor1_2)
+            @ride1_2.board_rider(@visitor1_2)
+            @ride1_2.board_rider(@visitor2_2)
+
+            @ride2_2.board_rider(@visitor2_2)
+            @ride2_2.board_rider(@visitor3_2)
         end
 
         describe '#Carnival.all' do
@@ -178,6 +187,10 @@ describe Carnival do
             end
         end
 
-        
+        describe '#Carnival.toral_revenues' do
+            it 'can return revenue from all carnivals' do
+                expect(Carnival.total_revenues).to eq(24)
+            end
+        end
     end
 end
