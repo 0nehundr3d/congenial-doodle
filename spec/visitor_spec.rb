@@ -37,4 +37,16 @@ describe Visitor do
             expect(@visitor1.tall_enough?(64)).to eq(false)
         end
     end
+
+    describe '#pay_admission' do
+        it 'can pay admission fees' do
+            expect(@visitor1.pay_admission(10)).to eq(true)
+            expect(@visitor1.spending_money).to eq(0)
+        end
+
+        it 'can not pay more than it has' do
+            expect(@visitor1.pay_admission(20)).to eq(false)
+            expect(@visitor1.spending_money).to eq(10)
+        end
+    end
 end
