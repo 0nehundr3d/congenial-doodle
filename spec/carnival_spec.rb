@@ -106,7 +106,7 @@ describe Carnival do
     end
 
     describe '#summary' do
-        xit 'can return a summary of the carnival' do
+        it 'can return a summary of the carnival' do
             expect(@carnival.summary).to eq({
                 visitor_count: 3,
                 revenue_earned: 7,
