@@ -27,4 +27,8 @@ class Ride
     def total_riders
         @rider_log.sum { |rider, times_ridden| times_ridden }
     end
+
+    def visitors
+        @rider_log.keys
+    end
 end
