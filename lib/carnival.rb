@@ -39,7 +39,13 @@ class Carnival
     end
 
     def get_visitor_info(visitor)
-        
+        info_hash = {}
+
+        info_hash[:visitor] = visitor
+        info_hash[:favorite_ride] = @rides.max_by { |ride| ride.rider_log[visitor] }
+        info_hash[:total_money_spent] = visitor.money_spent
+
+        info_hash
     end
 
     def summary
